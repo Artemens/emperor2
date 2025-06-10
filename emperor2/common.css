@@ -1,0 +1,110 @@
+.article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.article-item {
+    display: flex;
+    position: relative;
+    width: 80%;
+    min-height: 300px; 
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.article-list__item:nth-child(odd) {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.article-list__item:nth-child(even) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.article-item__wrapper {
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    z-index: 2;
+    flex-grow: 1; 
+}
+
+.article-item__title {
+    font-family: 'Playfair Display', serif;
+    color: #0a2540;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+
+.article-item__content {
+    font-family: 'Playfair Display', serif;
+    color: #0a2540;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 80%;
+    margin-top: auto; 
+    padding-bottom: 10px; 
+}
+
+.article-item__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: scale(1);
+    overflow: hidden;
+}
+
+.article-item__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.article-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.article-item:hover .article-item__background {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .article-item {
+        width: 100%;
+    }
+    
+    .article-list__item:nth-child(odd),
+    .article-list__item:nth-child(even) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .article-item__title,
+    .article-item__content {
+        max-width: 100%;
+    }
+}
